@@ -1,6 +1,8 @@
 # wikiproxy
 
-A PoC Go app that acts as a proxy for Wikipedia, similar to wikiless but written in Go
+A PoC Go app that acts as a privacy-protecting proxy for Wikipedia, similar to [wikiless](https://wikiless.org/) but written in Go
+
+This serves just Wikipedia pages, no tracking, no ads, no search (yet)
 
 Known issues:
 
