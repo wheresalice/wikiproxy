@@ -1,6 +1,7 @@
 package main
 
 import (
+	"embed"
 	_ "embed"
 	"fmt"
 	"github.com/gorilla/mux"
@@ -15,6 +16,9 @@ import (
 
 //go:embed "wrapper.html.tmpl"
 var wrapper string
+
+//go:embed static
+var static embed.FS
 
 var Cache = cache.New(5*time.Minute, 5*time.Minute)
 
@@ -83,6 +87,7 @@ func main() {
 
 	r := mux.NewRouter()
 	r.HandleFunc("/wiki/{page}", PageHandler)
+	r.PathPrefix("/static/").Handler(http.StripPrefix("/static/", http.FileServer(http.FS(static))))
 
 	log.Printf("Listening on http://127.0.0.1:%v", port)
 	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%v", port), r))

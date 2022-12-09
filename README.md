@@ -5,7 +5,6 @@ A PoC Go app that acts as a proxy for Wikipedia, similar to wikiless but written
 Known issues:
 
 * Serves images directly from wikimedia still
-* Styling is minimal
 * Language is hardcoded to en
 * Homepage doesn't work
 
