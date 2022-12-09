@@ -6,7 +6,7 @@ Known issues:
 
 * Serves images directly from wikimedia still
 * Language is hardcoded to en
-* Homepage doesn't work
+* No search
 
 ## Usage
 
@@ -18,4 +18,4 @@ go run proxy.go
 PORT=8123 ./wikiproxy
 ```
 
-Then browse to eg. http://localhost:8000/wiki/Llanbedr
+Then browse to eg. http://localhost:8000

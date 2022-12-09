@@ -82,10 +82,34 @@ func PageHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+func HomePageHandler(w http.ResponseWriter, r *http.Request) {
+
+	t, err := template.New("wrapper").Parse(wrapper)
+	if err != nil {
+		log.Println(err)
+		return
+	}
+	pd, err := getHTML("Main_Page")
+	if err != nil {
+		w.WriteHeader(http.StatusBadGateway)
+		_, err := fmt.Fprint(w, err)
+		if err != nil {
+			return
+		}
+	} else {
+		w.WriteHeader(http.StatusOK)
+		err = t.Execute(w, pd)
+		if err != nil {
+			log.Println(err)
+		}
+	}
+}
+
 func main() {
 	port := getEnv("PORT", "8080")
 
 	r := mux.NewRouter()
+	r.HandleFunc("/", HomePageHandler)
 	r.HandleFunc("/wiki/{page}", PageHandler)
 	r.PathPrefix("/static/").Handler(http.StripPrefix("/static/", http.FileServer(http.FS(static))))
 
