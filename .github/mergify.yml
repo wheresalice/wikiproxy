@@ -148,22 +148,6 @@ pull_request_rules:
         add: ["idea"]
 
   # ===============================================================================
-  # CONTRIBUTORS
-  # ===============================================================================
-
-  - name: Welcome New Contributors
-    conditions:
-      - and:
-          - author!=dependabot[bot]
-          - author!=mergify[bot]
-          - author!=allcontributors[bot]
-          - author!=wheresalice
-    actions:
-      comment:
-        message: |
-          Welcome to our open-source project! 💘
-
-  # ===============================================================================
   # STALE BRANCHES
   # ===============================================================================
 
