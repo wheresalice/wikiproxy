@@ -5,7 +5,7 @@ go 1.19
 require (
 	github.com/gorilla/mux v1.8.1
 	github.com/patrickmn/go-cache v2.1.0+incompatible
-	github.com/trietmn/go-wiki v1.0.1
+	github.com/trietmn/go-wiki v1.0.2
 )
 
 require (
